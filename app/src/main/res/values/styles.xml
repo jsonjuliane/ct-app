@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -6,6 +6,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textSize">@dimen/font_small</item>
+        <item name="android:textColorHint">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="AppTheme.TextErrorAppearance" parent="TextAppearance.Design.Error">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="TextAppearance.App.TextInputLayoutDark" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textSize">@dimen/font_small</item>
+        <item name="android:textColorHint">@color/colorSecondaryText</item>
+        <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/colorPrimaryText</item>
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

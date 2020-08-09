@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_pica">@dimen/_8ssp</dimen>
+    <dimen name="font_small">@dimen/_10ssp</dimen>
+    <dimen name="font_default">@dimen/_12ssp</dimen>
+    <dimen name="font_medium">@dimen/_13ssp</dimen>
+    <dimen name="font_big">@dimen/_14ssp</dimen>
+
+    <dimen name="xx_small_space">@dimen/_1sdp</dimen>
+    <dimen name="x_small_space">@dimen/_3sdp</dimen>
+    <dimen name="small_space">@dimen/_5sdp</dimen>
+    <dimen name="space">@dimen/_10sdp</dimen>
+    <dimen name="big_space">@dimen/_15sdp</dimen>
+    <dimen name="x_big_space">@dimen/_20sdp</dimen>
+    <dimen name="xx_big_space">@dimen/_25sdp</dimen>
+    <dimen name="xxx_big_space">@dimen/_30sdp</dimen>
+</resources>

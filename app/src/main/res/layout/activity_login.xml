@@ -1,8 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:padding="@dimen/xx_big_space">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/big_space"
+            android:src="@drawable/cartrack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xxx_big_space"
+            android:animateLayoutChanges="true"
+            android:hint="@string/hint_email"
+            app:errorTextAppearance="@style/AppTheme.TextErrorAppearance"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/til_login_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="true"
+                android:inputType="textEmailAddress"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/space"
+                android:textAppearance="@style/TextAppearance.App.TextInputLayoutDark"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/font_default" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_space"
+            android:animateLayoutChanges="true"
+            android:hint="@string/hint_password"
+            android:textColorHint="@color/colorSecondaryText"
+            app:errorTextAppearance="@style/AppTheme.TextErrorAppearance"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+            app:layout_constraintEnd_toEndOf="@id/til_email"
+            app:layout_constraintStart_toStartOf="@id/til_email"
+            app:layout_constraintTop_toBottomOf="@id/til_email"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/til_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="true"
+                android:inputType="textPassword"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/space"
+                android:textAppearance="@style/TextAppearance.App.TextInputLayoutDark"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/font_default" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/b_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xxx_big_space"
+            android:background="@color/colorPrimary"
+            android:text="@string/label_login"
+            android:textColor="@color/colorIcons"
+            android:textSize="@dimen/font_default"
+            app:layout_constraintTop_toBottomOf="@id/til_password" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/small_space"
+            android:textSize="@dimen/font_default"
+            android:layout_marginTop="@dimen/xxx_big_space"
+            app:layout_constraintTop_toBottomOf="@id/b_login"
+            android:text="Philippines"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
