@@ -39,6 +39,8 @@ dependencies {
     //Constraint Layout
     implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.libraryVersions.constraint}"
 
+    implementation 'com.github.mukeshsolanki:country-picker-android:2.0.0'
+
     //Dagger
     implementation "com.google.dagger:dagger:${rootProject.ext.libraryVersions.dagger}"
     implementation "com.google.dagger:dagger-android-support:${rootProject.ext.libraryVersions.dagger}"
@@ -85,6 +87,8 @@ dependencies {
 
     //Timber
     implementation "com.jakewharton.timber:timber:${rootProject.ext.libraryVersions.timber}"
+
+    implementation 'com.github.maayyaannkk:CountryPicker:1.0.4'
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.core:core-ktx:1.3.1'
