@@ -10,16 +10,6 @@ import wanda.weiss.ct_app.model.network.ApiService
 import javax.inject.Inject
 
 abstract class BaseActivity<B : ViewDataBinding> : DaggerAppCompatActivity() {
-
-    @Inject
-    lateinit var apiService: ApiService
-
-    @Inject
-    lateinit var gson: Gson
-
-    @Inject
-    lateinit var skeleton: FiftyShadesOf
-
     open lateinit var binding: B
     fun bind(activity: DaggerAppCompatActivity, @LayoutRes layout: Int) {
         binding = DataBindingUtil.setContentView(activity, layout)

@@ -44,11 +44,10 @@ class NetworkModule {
 
     @Provides
     @AppScope
-    fun getOkHttpClientBuilder(authenticator: Authenticator, httpLoggingInterceptor: HttpLoggingInterceptor,
+    fun getOkHttpClientBuilder(httpLoggingInterceptor: HttpLoggingInterceptor,
                                cache: Cache, httpApiHeaders: Interceptor): OkHttpClient.Builder {
 
         return OkHttpClient.Builder()
-                .authenticator(authenticator)
                 .addInterceptor(httpApiHeaders)
                 .addInterceptor(httpLoggingInterceptor)
                 .connectTimeout(Constants.NETWORK_TIMEOUT_SHORT, TimeUnit.SECONDS)
