@@ -10,6 +10,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
+        multiDexEnabled true
         applicationId "wanda.weiss.ct_app"
         minSdkVersion 19
         targetSdkVersion 29
@@ -22,6 +23,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    dataBinding {
+        enabled = true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
