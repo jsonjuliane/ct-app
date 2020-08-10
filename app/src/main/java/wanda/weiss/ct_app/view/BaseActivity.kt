@@ -1,5 +1,8 @@
 package wanda.weiss.ct_app.view
 
+import android.app.Activity
+import android.content.Context
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -13,5 +16,17 @@ abstract class BaseActivity<B : ViewDataBinding> : DaggerAppCompatActivity() {
     open lateinit var binding: B
     fun bind(activity: DaggerAppCompatActivity, @LayoutRes layout: Int) {
         binding = DataBindingUtil.setContentView(activity, layout)
+    }
+
+    fun hideKeyboard(activity: Activity) {
+        val view = activity.currentFocus
+        if (view != null) {
+            val inputManager =
+                activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(
+                view.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+        }
     }
 }

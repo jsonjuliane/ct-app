@@ -7,6 +7,7 @@ import dagger.android.support.AndroidSupportInjectionModule
 import wanda.weiss.ct_app.di.module.app.SkeletonModule
 import wanda.weiss.ct_app.App
 import wanda.weiss.ct_app.di.module.app.*
+import wanda.weiss.ct_app.di.module.login.LoginModule
 
 @AppScope
 @Component(
@@ -17,7 +18,9 @@ import wanda.weiss.ct_app.di.module.app.*
         ApiServiceModule::class,
         AppModule::class,
         DataModule::class,
+        DBModule::class,
         SkeletonModule::class,
+        LoginModule::class,
         LogModule::class,
         NetworkModule::class]
 )

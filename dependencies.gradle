@@ -9,6 +9,7 @@ ext.internalLibraryCode = 1
 ext.libraryVersions = [
         appcompat         : '1.2.0',
         constraint        : '1.1.3',
+        cpicker           : '2.0.0',
         dagger            : '2.16',
         espresso          : '3.2.0',
         fiftyShades       : '1.0.0',
@@ -23,6 +24,7 @@ ext.libraryVersions = [
         rxandroid         : '2.1.1',
         rxjava            : '2.1.16',
         sdp               : '1.0.5',
+        sqlite            : '1.0.0.2',
         ssp               : '1.0.6',
         stetho            : "1.5.0",
         support           : '28.0.0',

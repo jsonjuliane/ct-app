@@ -39,7 +39,7 @@ dependencies {
     //Constraint Layout
     implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.libraryVersions.constraint}"
 
-    implementation 'com.github.mukeshsolanki:country-picker-android:2.0.0'
+    implementation "com.github.mukeshsolanki:country-picker-android:${rootProject.ext.libraryVersions.cpicker}"
 
     //Dagger
     implementation "com.google.dagger:dagger:${rootProject.ext.libraryVersions.dagger}"
@@ -75,11 +75,13 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.libraryVersions.rxandroid}"
     implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.libraryVersions.rxjava}"
     implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.libraryVersions.retrofit}"
-    implementation "com.github.akarnokd:rxjava3-interop:3.0.2"
 
     //Scale Density Pixel
     implementation "com.intuit.sdp:sdp-android:${rootProject.ext.libraryVersions.sdp}"
     implementation "com.intuit.ssp:ssp-android:${rootProject.ext.libraryVersions.ssp}"
+
+    //SQlite
+    implementation "com.github.p32929:EasiestSqlLibrary:${rootProject.ext.libraryVersions.sqlite}"
 
     //Support Library
     implementation "androidx.appcompat:appcompat:${rootProject.ext.libraryVersions.appcompat}"
@@ -88,7 +90,9 @@ dependencies {
     //Timber
     implementation "com.jakewharton.timber:timber:${rootProject.ext.libraryVersions.timber}"
 
-    implementation 'com.github.maayyaannkk:CountryPicker:1.0.4'
+    //View Model (Live Data)
+    implementation "androidx.lifecycle:lifecycle-extensions:${rootProject.ext.libraryVersions.viewmodel}"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:${rootProject.ext.libraryVersions.viewmodel}"
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.core:core-ktx:1.3.1'

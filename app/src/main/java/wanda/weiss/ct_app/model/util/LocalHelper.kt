@@ -1,4 +1,4 @@
-package wanda.weiss.ct_app.model
+package wanda.weiss.ct_app.model.util
 
 //Credits to gunhansancar
 
@@ -23,17 +23,24 @@ internal object LocaleHelper {
     private val SELECTED_LANGUAGE = "Locale.Helper.Selected.Language"
 
     fun onAttach(context: Context): Context {
-        val lang = getPersistedData(context, Locale.getDefault().language)
+        val lang = getPersistedData(
+            context,
+            Locale.getDefault().language
+        )
         return setLocale(context, lang)
     }
 
     fun onAttach(context: Context, defaultLanguage: String): Context {
-        val lang = getPersistedData(context, defaultLanguage)
+        val lang =
+            getPersistedData(context, defaultLanguage)
         return setLocale(context, lang)
     }
 
     fun getLanguage(context: Context): String? {
-        return getPersistedData(context, Locale.getDefault().language)
+        return getPersistedData(
+            context,
+            Locale.getDefault().language
+        )
     }
 
     fun setLocale(context: Context, language: String?): Context {
