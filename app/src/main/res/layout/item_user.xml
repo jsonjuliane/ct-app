@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/big_space">
+
+            <ImageView
+                android:id="@+id/iv_user_image"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space"
+                android:fontFamily="sans-serif-medium"
+                android:text="Kim Jason Juliane"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@id/iv_user_image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_user_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space"
+                android:layout_marginTop="@dimen/small_space"
+                android:text="jsonjuliane@gmail.com"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toEndOf="@id/iv_user_image"
+                app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+
+            <View
+                android:id="@+id/v_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/space"
+                android:background="@color/colorDivider"
+                app:layout_constraintTop_toBottomOf="@id/iv_user_image" />
+
+            <TextView
+                android:id="@+id/tv_user_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_view_details"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_directions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_directions" />
+
+            <ImageView
+                android:id="@+id/iv_directions"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/space"
+                android:paddingStart="@dimen/_30sdp"
+                android:src="@drawable/ic_direction"
+                android:tint="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_divider"
+                tools:ignore="ContentDescription,RtlSymmetry" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
