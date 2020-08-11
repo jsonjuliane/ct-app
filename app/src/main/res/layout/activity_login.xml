@@ -101,7 +101,7 @@
             android:layout_marginTop="@dimen/xxx_big_space"
             android:enabled="@{!loginObservable.loggingIn &amp;&amp; loginObservable.emailValid &amp;&amp; loginObservable.passwordValid}"
             android:alpha="@{(!loginObservable.loggingIn &amp;&amp; loginObservable.emailValid &amp;&amp; loginObservable.passwordValid)? 1.0f : 0.5f}"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/button_login"
             android:onClick="@{_ -> loginActivityVM.onLogin()}"
             android:text="@string/label_login"
             android:textColor="@color/colorIcons"

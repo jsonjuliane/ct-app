@@ -2,6 +2,7 @@ package wanda.weiss.ct_app.viewmodel.login
 
 import android.annotation.SuppressLint
 import android.util.Patterns
+import androidx.lifecycle.MutableLiveData
 import dagger.android.DaggerApplication
 import io.reactivex.subjects.PublishSubject
 import org.richit.easiestsqllib.EasiestDB
@@ -16,8 +17,10 @@ class LoginViewModel(application: DaggerApplication) :
 
     private val autoCompletePublishSubjectEmail = PublishSubject.create<String>()
     private val autoCompletePublishSubjectPassword = PublishSubject.create<String>()
-    private lateinit var loginObservable: LoginObservable
+    private lateinit var obs: LoginObservable
     private lateinit var easiestDB: EasiestDB
+
+    var success = MutableLiveData<Boolean>()
 
     init {
         configureInterceptor(autoCompletePublishSubjectEmail, 0)
@@ -27,7 +30,7 @@ class LoginViewModel(application: DaggerApplication) :
     }
 
     fun initDepdendencies(loginObservable: LoginObservable, easiestDB: EasiestDB) {
-        this.loginObservable = loginObservable
+        this.obs = loginObservable
         this.easiestDB = easiestDB
     }
 
@@ -36,7 +39,7 @@ class LoginViewModel(application: DaggerApplication) :
     }
 
     private fun filteredEmail(result: String) {
-        this.loginObservable.apply {
+        this.obs.apply {
             when {
                 Patterns.EMAIL_ADDRESS.matcher(result).matches() -> {
                     emailValid = true
@@ -55,7 +58,7 @@ class LoginViewModel(application: DaggerApplication) :
     }
 
     private fun filteredPassword(result: String) {
-        this.loginObservable.apply {
+        this.obs.apply {
             when {
                 result.length >= 6 -> {
                     passwordValid = true
@@ -70,10 +73,7 @@ class LoginViewModel(application: DaggerApplication) :
     }
 
     fun onLogin() {
-        when {
-            find(easiestDB, loginObservable.email.get()!!, loginObservable.password.get()!!) -> Timber.d("Login success")
-            else -> Timber.d("Login failed")
-        }
+        success.value = find(easiestDB, obs.email.get()!!, obs.password.get()!!)
     }
 
 }

@@ -1,6 +1,8 @@
 package wanda.weiss.ct_app.view.login
 
 import android.os.Bundle
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import com.mukesh.countrypicker.CountryPicker
 import com.mukesh.countrypicker.OnCountryPickerListener
 import wanda.weiss.ct_app.App
@@ -17,17 +19,17 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(){
     private var pickerListener: OnCountryPickerListener? = null
 
     @Inject
-    lateinit var loginObservable: LoginObservable
+    lateinit var obs: LoginObservable
 
     @Inject
-    lateinit var loginViewModel: LoginViewModel
+    lateinit var vm: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind(this, R.layout.activity_login)
-        binding.loginActivityVM = loginViewModel
-        binding.loginObservable = loginObservable
-        loginViewModel.initDepdendencies(loginObservable, (application as App).easiestDB)
+        binding.loginActivityVM = vm
+        binding.loginObservable = obs
+        vm.initDepdendencies(obs, (application as App).easiestDB)
     }
 
     override fun onStart() {
@@ -36,5 +38,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(){
         }
         picker = CountryPicker.Builder().with(this).listener(pickerListener!!).build()
         //        binding.tvCountries.setOnClickListener { picker?.showDialog(this) }
+
+        vm.success.observe(this, Observer {
+            if(it){
+                Toast.makeText(this, "Login success", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
