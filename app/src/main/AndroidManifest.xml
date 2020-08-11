@@ -2,6 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="wanda.weiss.ct_app">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -10,16 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="AllowBackup,GoogleAppIndexingWarning" >
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
 
-        <activity android:name=".view.login.LoginActivity"
+        <activity
+            android:name=".view.login.LoginActivity"
             android:screenOrientation="portrait">
-
 
 
         </activity>
 
-        <activity android:name=".view.content.ContentActivity"
+        <activity
+            android:name=".view.content.ContentActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

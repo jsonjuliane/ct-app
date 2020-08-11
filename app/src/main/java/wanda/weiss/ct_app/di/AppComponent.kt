@@ -19,7 +19,6 @@ import wanda.weiss.ct_app.di.module.login.LoginModule
         DataModule::class,
         DBModule::class,
         SkeletonModule::class,
-        LoginModule::class,
         LogModule::class,
         NetworkModule::class,
         PersistenceModule::class]
