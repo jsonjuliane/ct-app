@@ -115,9 +115,10 @@
             android:gravity="center"
             android:padding="@dimen/small_space"
             android:textSize="@dimen/font_default"
+            android:onClick="@{_ -> loginActivityVM.onCountryPick()}"
             android:layout_marginTop="@dimen/xxx_big_space"
             app:layout_constraintTop_toBottomOf="@id/b_login"
-            android:text="Philippines"/>
+            android:text="@string/placeholder_ph"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

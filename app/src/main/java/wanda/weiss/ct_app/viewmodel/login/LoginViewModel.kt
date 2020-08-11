@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import dagger.android.DaggerApplication
 import io.reactivex.subjects.PublishSubject
 import org.richit.easiestsqllib.EasiestDB
-import timber.log.Timber
 import wanda.weiss.ct_app.model.observable.login.LoginObservable
 import wanda.weiss.ct_app.model.util.find
 import wanda.weiss.ct_app.viewmodel.BaseViewModel
@@ -21,6 +20,7 @@ class LoginViewModel(application: DaggerApplication) :
     private lateinit var easiestDB: EasiestDB
 
     var success = MutableLiveData<Boolean>()
+    var pick = MutableLiveData<Boolean>()
 
     init {
         configureInterceptor(autoCompletePublishSubjectEmail, 0)
@@ -74,6 +74,10 @@ class LoginViewModel(application: DaggerApplication) :
 
     fun onLogin() {
         success.value = find(easiestDB, obs.email.get()!!, obs.password.get()!!)
+    }
+
+    fun onCountryPick(){
+        pick.value = true
     }
 
 }

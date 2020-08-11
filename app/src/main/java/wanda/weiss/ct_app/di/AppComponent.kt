@@ -4,7 +4,6 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import wanda.weiss.ct_app.di.module.app.SkeletonModule
 import wanda.weiss.ct_app.App
 import wanda.weiss.ct_app.di.module.app.*
 import wanda.weiss.ct_app.di.module.login.LoginModule
@@ -22,7 +21,8 @@ import wanda.weiss.ct_app.di.module.login.LoginModule
         SkeletonModule::class,
         LoginModule::class,
         LogModule::class,
-        NetworkModule::class]
+        NetworkModule::class,
+        PersistenceModule::class]
 )
 
 interface AppComponent : AndroidInjector<App> {

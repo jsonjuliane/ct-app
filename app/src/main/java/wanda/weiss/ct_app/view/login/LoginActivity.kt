@@ -5,9 +5,11 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.mukesh.countrypicker.CountryPicker
 import com.mukesh.countrypicker.OnCountryPickerListener
+import com.orhanobut.hawk.Hawk
 import wanda.weiss.ct_app.App
 import wanda.weiss.ct_app.R
 import wanda.weiss.ct_app.databinding.ActivityLoginBinding
+import wanda.weiss.ct_app.model.config.Constants
 import wanda.weiss.ct_app.model.observable.login.LoginObservable
 import wanda.weiss.ct_app.view.BaseActivity
 import wanda.weiss.ct_app.viewmodel.login.LoginViewModel
@@ -34,10 +36,20 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(){
 
     override fun onStart() {
         super.onStart()
+        binding.tvCountries.text = Hawk.get(Constants.COUNTRY)?: getString(R.string.placeholder_ph)
+
         pickerListener = OnCountryPickerListener {
+            it.name.apply {
+                binding.tvCountries.text = this
+                Hawk.put(Constants.COUNTRY, this)
+            }
         }
+
         picker = CountryPicker.Builder().with(this).listener(pickerListener!!).build()
-        //        binding.tvCountries.setOnClickListener { picker?.showDialog(this) }
+
+        vm.pick.observe(this, Observer {
+            picker?.showDialog(this)
+        })
 
         vm.success.observe(this, Observer {
             if(it){

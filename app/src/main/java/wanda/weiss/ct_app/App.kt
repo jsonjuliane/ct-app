@@ -2,6 +2,7 @@ package wanda.weiss.ct_app
 
 import com.github.florent37.fiftyshadesof.FiftyShadesOf
 import com.google.gson.Gson
+import com.orhanobut.hawk.HawkBuilder
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import org.richit.easiestsqllib.EasiestDB
@@ -29,6 +30,9 @@ class App : DaggerApplication() {
     @Inject
     lateinit var timberDebugTree: Timber.Tree
 
+    @Inject
+    lateinit var hawk: HawkBuilder
+
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         return DaggerAppComponent.builder().create(this)
     }
@@ -36,6 +40,7 @@ class App : DaggerApplication() {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(timberDebugTree)
+        hawk.build()
         init(easiestDB)
     }
 }
